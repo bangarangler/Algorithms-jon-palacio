@@ -2,8 +2,27 @@
 
 import argparse
 
+# def find_max_profit(prices):
+  # max_profit = None
+  # for i, val in enumerate(prices):
+    # for j in range(i + 1, len(prices)):
+      # buy_sell = prices[j] - val
+      # if max_profit is None or buy_sell > max_profit:
+        # max_profit = buy_sell
+  # return max_profit
 def find_max_profit(prices):
-  pass
+  prices.reverse()
+  max_profit = prices[0] - prices[1]
+
+  for i in range(0, len(prices)):
+    for j in range(i + 1, len(prices)):
+      if len(prices) > j + 1:
+        temp = prices[i] - prices[j]
+        print(temp)
+        if temp > max_profit:
+          max_profit = temp
+
+  return max_profit
 
 
 if __name__ == '__main__':
