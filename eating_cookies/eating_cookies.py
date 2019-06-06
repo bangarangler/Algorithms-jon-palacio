@@ -20,8 +20,17 @@ so eating_cookes(3) == 4
 base case: n <= 0 cookies
 '''
 def eating_cookies(n, cache=None):
+    if n == 0:
+      return 1
+    if n == 1:
+      return 1
+    if n == 2:
+      return 2
+    if n >= 1000:
+      print(f"Cookie monster has died, to many cookies where consumed")
 
-
+    return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
+print(eating_cookies(1001))
 if __name__ == "__main__":
   if len(sys.argv) > 1:
     num_cookies = int(sys.argv[1])
